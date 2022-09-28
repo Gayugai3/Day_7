@@ -1,0 +1,31 @@
+   
+    //a. Get all the countries from the Asia continent /region using the Filter function
+    var result=res.filter((ele)=>ele.region=="Asia").map((ele)=>ele.name);
+   console.log(`Countries from the Asia continent/region : ${result}`);
+
+    //b. Get all the countries with a population of less than 2 lakhs using Filter function
+   var popu = res.filter((ele)=>ele.population<200000).map((ele)=>ele.name);
+   console.log(`Countries with a population of less than 2 lakhs : ${popu}`);
+
+    //c. Print the following details name, capital, flag using forEach function
+   res.forEach(element => {
+    console.log(`Country name : ${element.name}
+    Capital : ${element.capital}
+    Flag : ${element.flag}`);
+   });
+
+    //d. Print the total population of countries using reduce function
+   var tot = res.reduce((acc,cv)=>acc+cv.population,0);
+   console.log(`Total population of all the countries : ${tot}`);
+
+   //e. Print the country which uses US Dollars as currency.    
+    res.filter(element=>
+    {    
+        for (let key in element.currencies)
+        {
+            if(element.currencies[key].code==="USD")
+            {
+                console.log(element.name)
+            }
+        }
+    })
